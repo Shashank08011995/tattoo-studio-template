@@ -1,104 +1,46 @@
-# Ritual Ink — Tattoo Studio Landing Page
+# coilbugatul — Atul Rana, Tattoo Artist
 
-A GSAP-animated landing page template for pitching to tattoo studio leads.
-Vite + React, with GSAP + ScrollTrigger and Lenis smooth scroll.
+Multi-page site for **coilbugatul** (Atul Rana), a freelance tattoo artist
+travelling across India — Japanese, colour and custom work.
 
-Design direction is **"Ink & Paper"**: a light, off-white paper ground rather
-than the dark template look, with editorial serif type, hand-drawn linework
-that draws itself on scroll, and photography that sits on the page as a
-printed sketch until you hover it.
+Vite + React + React Router. No animation libraries: the only motion is
+sections fading up on scroll, hand-drawn doodles that draw themselves once,
+and the style marquee. Everything respects `prefers-reduced-motion`.
 
-## Before sending to a lead — what to customize
+## Pages
 
-Placeholders live at the top of `src/App.jsx`:
+| Route        | What's on it |
+|--------------|--------------|
+| `/`          | Hero, intro, styles, travelling studio, recent work, process, aftercare teaser |
+| `/about`     | The journey timeline (childhood → 2020 → freelance → today), yoga & music, why freelance, skills & certifications |
+| `/work`      | Styles, primary/additional style lists, portfolio gallery, Instagram link |
+| `/consult`   | Consultation steps, hygiene & safety, before-your-session tips, FAQ |
+| `/aftercare` | Interactive healing timeline, do/don't, "is this normal?", when to see a doctor |
+| `/contact`   | WhatsApp message composer (fills in idea, city, size…), call / WhatsApp / Instagram cards |
 
-```js
-const WA_NUMBER = "971500000000";       // studio's WhatsApp number (no + or spaces)
-const INSTAGRAM_HANDLE = "@[instagram_handle]";
-const INSTAGRAM_URL = "https://instagram.com/[instagram_handle]";
-const PHONE_DISPLAY = "[+971 5X XXX XXXX]";
-const ADDRESS = "[Street, Area, Dubai]";
-```
+## Editing
 
-The studio name renders through the `Wordmark` component in `src/App.jsx`
-(currently `Ritual Ink`, with the second word italicised). Change it there and
-it updates the nav, footer and closing. Also update `<title>` and the meta
-description in `index.html`.
+- **Contact details, brand, nav** — `src/site.js`
+- **Portfolio & styles** — `src/data.js`
+- **Doodles** — `src/components/Linework.jsx` (`ART` map of SVG paths)
+- **Colours & layout** — `src/index.css` (tokens at the top)
 
-Also update:
+### Before going live: replace the photos
 
-- **Stats** — search `data-target=` in `App.jsx` (four instances), and the
-  matching `.hero-meta` values just above them.
-- **Reviews** — replace the three placeholders with real Google reviews. Keep
-  quotes short and paraphrase long ones rather than copy-pasting verbatim.
-- **Portfolio** — edit the `workItems` array in `App.jsx`. Each entry has a
-  `src`, a `style` and `place` caption, and a span class. See "Photography".
-- **Footer address / hours** — search `[Street, Area, Dubai]` and
-  `[Opening hours]`.
+`public/img/` still holds the template's **Unsplash placeholder photos**, not
+Atul's work. Replace them with his own healed pieces (from Instagram) — same
+filenames, or edit the `src` values in `src/data.js`.
 
-## Photography
-
-`public/img/` ships with **placeholder photography from Unsplash** (Unsplash
-License — free for commercial use, no attribution required). **Replace these
-with the studio's own healed work before sending.** Keeping stock tattoo
-photos on a live studio site misrepresents their portfolio.
-
-Drop replacements into `public/img/` using the same filenames and nothing else
-needs to change. Portrait crops suit `tall`, `pair` and the default span;
-landscape crops suit `wide` and `half`.
-
-Grid spans tile a 12-column grid, so keep the row sums at 12 if you reorder:
-
-| class     | span | aspect |
-|-----------|------|--------|
-| `tall`    | 5    | 4 / 5  |
-| `wide`    | 7    | 4 / 3  |
-| `half`    | 6    | 16 / 11|
-| `pair`    | 6    | 4 / 5  |
-| *(none)*  | 4    | 3 / 4  |
-
-Current rows: `5+7` / `6+6` / `4+4+4` / `6+6`.
-
-## Run locally
+## Run & deploy
 
 ```bash
 npm install
 npm run dev
 ```
 
-## Build & deploy
-
 ```bash
 npm run build
 ```
 
-Outputs to `dist/`. Push to GitHub, import to Vercel, deploy.
-
-**Recommended workflow per lead:** duplicate this folder per studio, fill in
-their details, deploy to a throwaway Vercel URL (e.g.
-`studioname-demo.vercel.app`) and send the link rather than a screenshot —
-the motion is most of the pitch.
-
-## Design notes
-
-- **Palette** — paper `#F7F4EF`, ink `#1A1815`, sepia `#6B5D4F`, and a single
-  seal red `#8C3A2E` used sparingly (stamp, review stars, hover states). The
-  light ground is the main differentiator; nearly every tattoo template is
-  black.
-- **Type** — Instrument Serif for display (editorial, high contrast), Inter
-  for body, IBM Plex Mono for labels and small caps.
-- **Linework** (`src/components/Linework.jsx`) — SVG tattoo flash drawn with
-  `stroke-dashoffset` on scroll. Available art: `rose`, `snake`, `moth`,
-  `dagger`, `flourish`, `arrow`, `sun`. Use it sparingly; it stops reading as
-  hand-drawn if it's on every section.
-- **Ink reveal** (`src/hooks/useInkReveal.js`) — adds an irregular blob mask
-  to any `.ink-reveal` element and grows it on scroll, so images bleed in like
-  ink into paper. The mask is dropped once complete to keep edges crisp.
-- **Sketch → photo** — each portfolio image is stacked twice: a
-  desaturated, high-contrast `multiply` copy that reads as a sketch printed on
-  the paper, crossfading to the full photo on hover.
-- **Booking CTA** — deliberately ink-black rather than WhatsApp green, which
-  fights the paper palette. The WhatsApp glyph carries the recognition.
-- Motion is restrained by design: one orchestrated hero reveal, scroll
-  counters, ink reveals, and the linework draw. Resist adding more.
-- Everything respects `prefers-reduced-motion`.
+Outputs to `dist/`. `vercel.json` rewrites every route to `index.html` so
+deep links like `/aftercare` work on Vercel.
