@@ -1,5 +1,6 @@
 import Linework from "../components/Linework";
 import { ClosingCta, PageHero, SectionHead, WhatsAppButton } from "../components/ui";
+import { photoOf } from "../data";
 
 const steps = [
   { art: "chat", tone: "jade", title: "Say hi on WhatsApp", body: "Tell me your idea, references, placement, rough size and your city. Not sure yet? That’s exactly what the consult is for." },
@@ -32,7 +33,7 @@ const faqs = [
 export default function Consult() {
   return (
     <>
-      <PageHero label="Consult & process" title={<>Guided from <em>idea to healed.</em></>} art="chat" tone="jade">
+      <PageHero label="Consult & process" title={<>Guided from <em>idea to healed.</em></>} art="chat" tone="jade" photo={photoOf("eye-filigree", "drawn for you, then inked")}>
         I don’t just tattoo — I help you decide what to tattoo. Suggestions,
         placement advice and a custom design, all before the needle touches skin.
       </PageHero>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Linework from "../components/Linework";
 import { PageHero, WaIcon } from "../components/ui";
+import { photoOf } from "../data";
 import { INSTAGRAM_HANDLE, INSTAGRAM_URL, PHONE_DISPLAY, TEL_LINK, waLink } from "../site";
 
 const STYLE_OPTIONS = ["Not sure yet — guide me", "Japanese", "Colour work", "Fine line", "Blackwork / Dotwork", "Geometric / Ornamental", "Microrealism", "Lettering"];
@@ -28,7 +29,7 @@ export default function Contact() {
 
   return (
     <>
-      <PageHero label="Contact & booking" title={<>Let’s make <em>something.</em></>} art="chat" tone="koi">
+      <PageHero label="Contact & booking" title={<>Let’s make <em>something.</em></>} art="chat" tone="koi" photo={photoOf("tiger", "your idea, next?")}>
         Consultations happen on WhatsApp. Fill in what you know below and it’ll
         open WhatsApp with your message ready to send — or just say hi.
       </PageHero>

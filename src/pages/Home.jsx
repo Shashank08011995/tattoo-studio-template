@@ -2,7 +2,8 @@ import { Link } from "react-router-dom";
 import Linework from "../components/Linework";
 import { ClosingCta, SectionHead, TextLink, WhatsAppButton } from "../components/ui";
 import WorkItem from "../components/WorkItem";
-import { styles, workItems } from "../data";
+import HeroCarousel from "../components/HeroCarousel";
+import { heroSlides, styles, workItems } from "../data";
 import { YEARS } from "../site";
 
 const marquee = ["Japanese", "Colour work", "Fine line", "Blackwork", "Dotwork", "Custom designs", "Travelling across India"];
@@ -54,11 +55,7 @@ export default function Home() {
             <div className="hero-meta-item"><b>1:1</b><span>Design guidance</span></div>
           </div>
         </div>
-        <figure className="hero-card">
-          <img src="/work/hannya-mask.jpg" alt="Japanese colour hannya mask tattoo by coilbugatul" />
-          <figcaption className="hand">fresh hannya ✦</figcaption>
-          <Linework art="wave" className="hero-wave tone-vermilion" strokeWidth={1.6} />
-        </figure>
+        <HeroCarousel slides={heroSlides} />
       </header>
 
       <div className="marquee-band" aria-hidden="true">

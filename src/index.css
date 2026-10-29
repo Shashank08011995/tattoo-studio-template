@@ -189,8 +189,32 @@ h2 em, h1 em { font-style: italic; color: var(--sepia); }
   background: var(--ink); padding: 12px 12px 0; border-radius: 6px;
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
 }
-.hero-card img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 3px; }
-.hero-card figcaption { color: var(--paper); text-align: center; padding: 10px 0 12px; font-size: 26px; }
+.carousel-frame { position: relative; aspect-ratio: 4 / 5; overflow: hidden; border-radius: 3px; background: var(--paper-dark); }
+.carousel-frame img {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  opacity: 0; transform: scale(1.04); transition: opacity 0.9s ease, transform 4.5s ease-out;
+}
+.carousel-frame img.active { opacity: 1; transform: scale(1); }
+.hero-card figcaption { color: var(--paper); text-align: center; padding: 10px 0 2px; font-size: 26px; min-height: 1.4em; }
+.carousel-dots { display: flex; justify-content: center; gap: 4px; padding-bottom: 8px; }
+.carousel-dots button { width: 22px; height: 22px; position: relative; }
+.carousel-dots button::after {
+  content: ""; position: absolute; left: 7px; top: 7px; width: 8px; height: 8px; border-radius: 50%;
+  background: rgba(18, 16, 14, 0.25); transition: background 0.3s ease, transform 0.3s ease;
+}
+.carousel-dots button.active::after { background: var(--seal); transform: scale(1.25); }
+
+/* ---------- Polaroids (page heroes, About) ---------- */
+.polaroid {
+  position: relative; background: var(--ink); padding: 10px 10px 0; border-radius: 6px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5); transform: rotate(2.5deg);
+}
+.polaroid img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 3px; }
+.polaroid figcaption { color: var(--paper); text-align: center; padding: 8px 0 10px; font-size: 23px; }
+.polaroid-art { position: absolute; width: 46%; left: -30%; bottom: -10%; }
+.page-hero-photo { width: 100%; align-self: center; }
+.soul-photo { width: 78%; transform: rotate(-2.5deg); }
+.soul-photo .polaroid-art { left: auto; right: -26%; bottom: -8%; width: 50%; }
 .hero-eyebrow { margin-bottom: 28px; }
 .hero-content h1 {
   font-size: clamp(54px, 7.6vw, 112px); line-height: 0.95; letter-spacing: -0.02em;
@@ -213,7 +237,7 @@ h2 em, h1 em { font-style: italic; color: var(--sepia); }
 
 /* ---------- Inner page hero ---------- */
 .page-hero { padding: 170px 0 70px; border-bottom: 1px solid var(--rule); position: relative; overflow: hidden; }
-.page-hero-inner { display: grid; grid-template-columns: 1fr 260px; gap: 50px; align-items: end; }
+.page-hero-inner { display: grid; grid-template-columns: 1fr minmax(240px, 300px); gap: 60px; align-items: end; }
 .page-hero .label { margin-bottom: 24px; }
 .page-hero h1 { font-size: clamp(46px, 6.6vw, 96px); line-height: 0.96; letter-spacing: -0.025em; }
 .page-hero-sub { margin-top: 26px; max-width: 580px; font-size: 18px; line-height: 1.7; color: var(--ink-soft); }
@@ -553,6 +577,8 @@ footer { border-top: 1px solid var(--rule); padding: 70px 0 40px; background: va
   .style-grid { grid-template-columns: repeat(2, 1fr); }
   .page-hero-inner { grid-template-columns: 1fr; }
   .page-hero-art { width: 160px; position: absolute; right: 20px; top: 110px; opacity: 0.5; }
+  .page-hero-photo { width: min(240px, 62%); margin: 10px 0 0 34px; }
+  .page-hero-photo .polaroid-art { left: -22%; }
   .stage-panel { grid-template-columns: 1fr; gap: 20px; padding: 30px 24px; }
   .stage-art .linework { width: 140px; }
   .dd-grid { grid-template-columns: 1fr; }

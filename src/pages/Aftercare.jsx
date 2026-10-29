@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Linework from "../components/Linework";
 import { ClosingCta, PageHero, SectionHead, WhatsAppButton } from "../components/ui";
+import { photoOf } from "../data";
 
 const stages = [
   {
@@ -97,7 +98,7 @@ export default function Aftercare() {
 
   return (
     <>
-      <PageHero label="Aftercare guide" title={<>Heal it right, <em>wear it bright.</em></>} art="drop" tone="jade">
+      <PageHero label="Aftercare guide" title={<>Heal it right, <em>wear it bright.</em></>} art="drop" tone="jade" photo={photoOf("butterflies", "healed & happy ✦")}>
         Your tattoo is a wound for the first few weeks — treat it kindly and it
         will look amazing for life. Here’s everything you need, stage by stage.
       </PageHero>
