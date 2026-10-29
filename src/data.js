@@ -1,23 +1,19 @@
-// Portfolio. These are still the template's placeholder photos — swap each
-// `src` for Atul's own healed work (same filenames in public/img/ works too).
-// Spans tile a 12-column grid: 5+7 / 6+6 / 4+4+4 / 6+6.
+// Atul's own work. Videos loop silently while on screen; `poster` shows first.
 export const workItems = [
-  { src: "/img/work-08.jpg", style: "Colour work", place: "Legs", cls: "tall" },
-  { src: "/img/work-02.jpg", style: "Blackwork sleeve", place: "Full arm", cls: "wide" },
-  { src: "/img/work-07.jpg", style: "Ornamental", place: "Full back", cls: "half" },
-  { src: "/img/work-01.jpg", style: "Fine line", place: "Forearm", cls: "half" },
-  { src: "/img/work-03.jpg", style: "Linework", place: "Calf", cls: "" },
-  { src: "/img/work-04.jpg", style: "Fine line", place: "Hand", cls: "" },
-  { src: "/img/work-05.jpg", style: "Ornamental", place: "Back", cls: "" },
-  { src: "/img/work-06.jpg", style: "Blackwork", place: "Nape", cls: "pair" },
-  { src: "/img/process-03.jpg", style: "In progress", place: "On the road", cls: "pair" },
+  { src: "/work/hannya-mask.jpg", style: "Japanese colour · Hannya", place: "Calf" },
+  { video: "/work/skull-dagger.mp4", src: "/work/skull-dagger.jpg", style: "Japanese colour · Skull & dagger", place: "Forearm" },
+  { src: "/work/lotus-beads.jpg", style: "Japanese black & grey · Lotus", place: "Thigh" },
+  { video: "/work/tiger.mp4", src: "/work/tiger.jpg", style: "Black & grey · Tiger", place: "Forearm" },
+  { src: "/work/eye-filigree.jpg", style: "Black & grey · Eye & filigree", place: "Upper arm" },
+  { src: "/work/portrait.jpg", style: "Realism · Portrait", place: "Arm" },
+  { src: "/work/butterflies.jpg", style: "Fine line · Butterflies", place: "Arm" },
 ];
 
 export const styles = [
-  { name: "Japanese", art: "wave", tone: "vermilion", body: "Waves, koi, florals and flow — bold, timeless compositions built to move with the body." },
+  { name: "Japanese", art: "wave", tone: "vermilion", body: "Hannya masks, koi, lotus, waves and flow — bold, timeless compositions built to move with the body." },
   { name: "Colour work", art: "koi", tone: "koi", body: "Saturated, punchy colour that heals bright and stays bright with good aftercare." },
+  { name: "Black & grey realism", art: "moth", tone: "ink", body: "Portraits, animals and soft shading — smooth gradients with real depth." },
   { name: "Fine line", art: "rose", tone: "sakura", body: "Delicate, precise linework for small, elegant pieces that still age well." },
-  { name: "Blackwork & Dotwork", art: "moth", tone: "ink", body: "Solid black, stippled shading and texture — strong contrast, strong presence." },
-  { name: "Geometric & Ornamental", art: "sun", tone: "gold", body: "Sacred shapes, mandalas and symbols with clean symmetry." },
+  { name: "Geometric & Ornamental", art: "sun", tone: "gold", body: "Filigree, mandalas and symbols with clean symmetry, plus blackwork and dotwork." },
   { name: "Microrealism", art: "sparkle", tone: "jade", body: "Tiny, detailed realism — portraits, objects and memories in miniature." },
 ];

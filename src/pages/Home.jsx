@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Linework from "../components/Linework";
 import { ClosingCta, SectionHead, TextLink, WhatsAppButton } from "../components/ui";
+import WorkItem from "../components/WorkItem";
 import { styles, workItems } from "../data";
 import { YEARS } from "../site";
 
@@ -23,9 +24,8 @@ export default function Home() {
   return (
     <>
       <header className="hero">
-        <img className="hero-img" src="/img/hero-main.jpg" alt="" aria-hidden="true" />
-        <span className="hero-veil" aria-hidden="true" />
-        <div className="wrap hero-content">
+        
+                <div className="wrap hero-content">
           <div className="hero-eyebrow label">
             <span className="rule" />
             Atul Rana · Freelance tattoo artist · India
@@ -54,7 +54,11 @@ export default function Home() {
             <div className="hero-meta-item"><b>1:1</b><span>Design guidance</span></div>
           </div>
         </div>
-        <Linework art="wave" className="hero-wave tone-vermilion" strokeWidth={1.6} />
+        <figure className="hero-card">
+          <img src="/work/hannya-mask.jpg" alt="Japanese colour hannya mask tattoo by coilbugatul" />
+          <figcaption className="hand">fresh hannya ✦</figcaption>
+          <Linework art="wave" className="hero-wave tone-vermilion" strokeWidth={1.6} />
+        </figure>
       </header>
 
       <div className="marquee-band" aria-hidden="true">
@@ -139,13 +143,8 @@ export default function Home() {
       <section>
         <div className="wrap">
           <SectionHead label="Recent work" title={<>Fresh off <em>the needle.</em></>} />
-          <div className="work-grid">
-            {workItems.slice(0, 4).map((w) => (
-              <figure className={`work-item reveal-up ${w.cls}`} key={w.src}>
-                <img src={w.src} alt={`${w.style} tattoo — ${w.place}`} loading="lazy" />
-                <figcaption className="work-cap"><span>{w.style}</span><span>{w.place}</span></figcaption>
-              </figure>
-            ))}
+          <div className="work-grid work-grid--featured">
+            {workItems.slice(0, 4).map((w) => <WorkItem item={w} key={w.src} />)}
           </div>
           <div className="center-row"><TextLink to="/work">All work &amp; styles</TextLink></div>
         </div>
