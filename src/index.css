@@ -280,8 +280,10 @@ section { padding: 130px 0; position: relative; }
 
 .travel { background: var(--paper-deep); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
 .travel-map { position: relative; }
-.travel-pin { position: absolute; width: 18%; left: 26%; top: -6%; }
-.travel-note { position: absolute; right: 4%; top: -4%; transform: rotate(-6deg); color: var(--koi); }
+.travel-photo { width: 76%; transform: rotate(-2.5deg); }
+.travel-photo .polaroid-art { left: auto; right: -34%; bottom: -6%; width: 62%; }
+.travel-pin { position: absolute; width: 16%; right: 6%; top: 4%; z-index: 2; }
+.travel-note { position: absolute; right: 0; top: -6%; transform: rotate(-6deg); color: var(--koi); }
 
 /* ---------- Style cards ---------- */
 .style-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }

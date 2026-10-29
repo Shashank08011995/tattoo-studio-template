@@ -18,11 +18,11 @@ export const styles = [
   { name: "Microrealism", art: "sparkle", tone: "jade", body: "Tiny, detailed realism — portraits, objects and memories in miniature." },
 ];
 
-// Photos of Atul himself. Put the files in public/work/ and uncomment — the
+// Photos of Atul himself. Files live in public/work/; the
 // Journey page hero and the front of the home carousel pick them up.
 export const artistPhotos = [
-  // { src: "/work/atul-drawing.jpg", note: "still drawing, always ✦", alt: "Atul Rana holding his pastel sunset drawing" },
-  // { src: "/work/atul-hills.jpg", note: "somewhere in the hills", alt: "Atul Rana in the hills, showing his leg tattoos" },
+  { src: "/work/atul-drawing.jpg", note: "still drawing, always ✦", alt: "Atul Rana holding his pastel sunset drawing" },
+  { src: "/work/atul-hills.jpg", note: "somewhere in the hills", alt: "Atul Rana in the hills, showing his leg tattoos" },
 ];
 
 // Home hero carousel: Atul first (if any), then the work.

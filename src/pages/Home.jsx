@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import Linework from "../components/Linework";
-import { ClosingCta, SectionHead, TextLink, WhatsAppButton } from "../components/ui";
+import { ClosingCta, Polaroid, SectionHead, TextLink, WhatsAppButton } from "../components/ui";
 import WorkItem from "../components/WorkItem";
 import HeroCarousel from "../components/HeroCarousel";
-import { heroSlides, styles, workItems } from "../data";
+import { artistPhotos, heroSlides, styles, workItems } from "../data";
 import { YEARS } from "../site";
 
 const marquee = ["Japanese", "Colour work", "Fine line", "Blackwork", "Dotwork", "Custom designs", "Travelling across India"];
@@ -118,7 +118,7 @@ export default function Home() {
       <section className="travel">
         <div className="wrap travel-grid">
           <div className="travel-map reveal-up">
-            <Linework art="mountain" className="tone-jade" strokeWidth={1.4} />
+            <Polaroid {...artistPhotos[1]} note="Atul, somewhere in the hills" art="mountain" tone="jade" className="travel-photo" />
             <Linework art="pin" className="travel-pin tone-vermilion" strokeWidth={1.6} />
             <span className="hand travel-note">your city next?</span>
           </div>
