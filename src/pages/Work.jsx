@@ -1,7 +1,7 @@
 import Linework from "../components/Linework";
 import { ClosingCta, InstagramButton, PageHero, SectionHead } from "../components/ui";
 import WorkItem from "../components/WorkItem";
-import { styles, workItems } from "../data";
+import { photoOf, styles, workItems } from "../data";
 
 const primary = ["Japanese", "Colour", "Realism", "Fine Line", "Geometric", "Microrealism", "Blackwork", "Dotwork", "Black & Grey"];
 const additional = ["Custom Designs", "Lettering", "Minimalist", "Ornamental / Symbolic"];
@@ -9,7 +9,7 @@ const additional = ["Custom Designs", "Lettering", "Minimalist", "Ornamental / S
 export default function Work() {
   return (
     <>
-      <PageHero label="Work & styles" title={<>Every piece, <em>drawn for one person.</em></>} art="koi" tone="koi">
+      <PageHero label="Work & styles" title={<>Every piece, <em>drawn for one person.</em></>} art="koi" tone="koi" photo={photoOf("skull-dagger")}>
         Japanese flow, bright colour and clean detail. No flash off the wall —
         each design starts with your idea and is built for your body.
       </PageHero>

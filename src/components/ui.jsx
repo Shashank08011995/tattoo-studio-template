@@ -54,8 +54,20 @@ export function SectionHead({ label, title, children }) {
   );
 }
 
-// Opening band for the inner pages: big title, a line of copy, one doodle.
-export function PageHero({ label, title, children, art = "wave", tone = "koi" }) {
+// A photo pinned to the page, with an optional handwritten note and doodle.
+export function Polaroid({ src, alt = "", note, art, tone = "koi", className = "" }) {
+  return (
+    <figure className={`polaroid ${className}`}>
+      <img src={src} alt={alt} />
+      {note && <figcaption className="hand">{note}</figcaption>}
+      {art && <Linework art={art} className={`polaroid-art tone-${tone}`} strokeWidth={1.6} />}
+    </figure>
+  );
+}
+
+// Opening band for the inner pages: big title, a line of copy, a doodle.
+// `photo` swaps the lone doodle for a pinned photo with the doodle on top.
+export function PageHero({ label, title, children, art = "wave", tone = "koi", photo }) {
   return (
     <header className="page-hero">
       <div className="wrap page-hero-inner">
@@ -64,7 +76,11 @@ export function PageHero({ label, title, children, art = "wave", tone = "koi" })
           <h1 className="serif">{title}</h1>
           {children && <p className="page-hero-sub">{children}</p>}
         </div>
-        <Linework art={art} className={`page-hero-art tone-${tone}`} strokeWidth={1.6} />
+        {photo ? (
+          <Polaroid {...photo} art={art} tone={tone} className="page-hero-photo" />
+        ) : (
+          <Linework art={art} className={`page-hero-art tone-${tone}`} strokeWidth={1.6} />
+        )}
       </div>
     </header>
   );

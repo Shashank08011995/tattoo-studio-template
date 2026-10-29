@@ -1,5 +1,6 @@
 import Linework from "../components/Linework";
-import { ClosingCta, PageHero, SectionHead } from "../components/ui";
+import { ClosingCta, PageHero, Polaroid, SectionHead } from "../components/ui";
+import { artistPhotos, photoOf } from "../data";
 import { YEARS } from "../site";
 
 const journey = [
@@ -50,7 +51,9 @@ const skills = [
 export default function About() {
   return (
     <>
-      <PageHero label="The journey" title={<>From sketchbooks <em>to skin.</em></>} art="pencil" tone="jade">
+      <PageHero label="The journey" title={<>From sketchbooks <em>to skin.</em></>} art="pencil" tone="jade"
+        photo={artistPhotos[0] ?? photoOf("portrait", "every line, a story")}
+      >
         I’m Atul Rana — <b>coilbugatul</b>. A freelance tattoo artist from India,
         a lifelong doodler, and a spiritual seeker who believes a tattoo should
         feel as good as it looks.
@@ -76,7 +79,7 @@ export default function About() {
       <section className="soul">
         <div className="wrap soul-grid">
           <div className="soul-doodles reveal-up">
-            <Linework art="lotus" className="tone-sakura" strokeWidth={1.5} />
+            <Polaroid {...photoOf("lotus-beads", "lotus — a seeker’s symbol")} art="lotus" tone="sakura" className="soul-photo" />
             <Linework art="note" className="tone-gold soul-note" strokeWidth={1.5} />
             <span className="hand soul-caption">breathe · listen · create</span>
           </div>
