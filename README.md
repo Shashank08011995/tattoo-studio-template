@@ -25,11 +25,15 @@ and the style marquee. Everything respects `prefers-reduced-motion`.
 - **Doodles** — `src/components/Linework.jsx` (`ART` map of SVG paths)
 - **Colours & layout** — `src/index.css` (tokens at the top)
 
-### Before going live: replace the photos
+### Adding new work
 
-`public/img/` still holds the template's **Unsplash placeholder photos**, not
-Atul's work. Replace them with his own healed pieces (from Instagram) — same
-filenames, or edit the `src` values in `src/data.js`.
+Photos and short videos live in `public/work/`. Drop a file in and add an
+entry to `workItems` in `src/data.js` (videos take `video` plus a `src`
+poster frame). Keep videos short, muted and re-encoded small, e.g.:
+
+```bash
+ffmpeg -i in.mp4 -an -vf scale=720:-2 -c:v libx264 -crf 26 -movflags +faststart public/work/name.mp4
+```
 
 ## Run & deploy
 

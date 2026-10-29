@@ -1,8 +1,9 @@
 import Linework from "../components/Linework";
 import { ClosingCta, InstagramButton, PageHero, SectionHead } from "../components/ui";
+import WorkItem from "../components/WorkItem";
 import { styles, workItems } from "../data";
 
-const primary = ["Japanese", "Colour", "Fine Line", "Geometric", "Microrealism", "Blackwork", "Dotwork", "Black & Grey"];
+const primary = ["Japanese", "Colour", "Realism", "Fine Line", "Geometric", "Microrealism", "Blackwork", "Dotwork", "Black & Grey"];
 const additional = ["Custom Designs", "Lettering", "Minimalist", "Ornamental / Symbolic"];
 
 export default function Work() {
@@ -43,13 +44,8 @@ export default function Work() {
           <SectionHead label="Portfolio" title={<>The <em>gallery.</em></>}>
             <p>New pieces land on Instagram first — follow along for healed shots, works in progress and life on the road.</p>
           </SectionHead>
-          <div className="work-grid">
-            {workItems.map((w) => (
-              <figure className={`work-item reveal-up ${w.cls}`} key={w.src}>
-                <img src={w.src} alt={`${w.style} tattoo — ${w.place}`} loading="lazy" />
-                <figcaption className="work-cap"><span>{w.style}</span><span>{w.place}</span></figcaption>
-              </figure>
-            ))}
+          <div className="work-grid work-grid--masonry">
+            {workItems.map((w) => <WorkItem item={w} key={w.src} />)}
           </div>
           <div className="insta-strip reveal-up">
             <Linework art="sparkle" className="tone-gold" strokeWidth={1.6} />
